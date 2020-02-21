@@ -8,67 +8,56 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity(name="QUESTION")
-@Table(name="QUESTION")
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity()
+@Table(name = "QUESTION")
 public class Question {
 
 	@Id
 	@GeneratedValue
-	@Column(name="QUESTION_ID")
+	@Column(name = "QUESTION_ID")
 	private int questionId;
-	
-	@Column(name="QUESTION")
+
+	@Column(name = "QUESTION")
 	private String question;
-	
-	@Column(name="OPTION1")
+
+	@Column(name = "OPTION1")
 	private String option1;
-	
-	@Column(name="OPTION2")
+
+	@Column(name = "OPTION2")
 	private String option2;
-	
-	@Column(name="OPTION3")
+
+	@Column(name = "OPTION3")
 	private String option3;
-	
-	@Column(name="OPTION4")
+
+	@Column(name = "OPTION4")
 	private String option4;
-	
-	@Column(name="CORRECT_ANSWER")
+
+	@Column(name = "CORRECT_ANSWER")
 	private String correctAnswer;
-	
-	@Column(name="SUBJECT_ID")
-	private int subjectId;
-	
-	@Column(name="LEVELS")
+
+	@Column(name = "LEVELS")
 	private int levels;
-	
-	
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name="SUBJECT_ID") private Subject subject;
-	 * 
-	 * public Subject getSubject() { return subject; }
-	 * 
-	 * public void setSubject(Subject subject) { this.subject = subject; }
-	 */
+
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "subject_id")
+	private Subject subject;
+
+	public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
 
 	public Question() {
 		super();
 	}
 
-	public Question(int questionId, String question, String option1, String option2, String option3, String option4,
-			String correctAnswer, int subjectId, int levels) {
-		super();
-		this.questionId = questionId;
-		this.question = question;
-		this.option1 = option1;
-		this.option2 = option2;
-		this.option3 = option3;
-		this.option4 = option4;
-		this.correctAnswer = correctAnswer;
-		this.subjectId = subjectId;
-		this.levels = levels;
-	}
+	
 
 	public int getQuestionId() {
 		return questionId;
@@ -126,14 +115,6 @@ public class Question {
 		this.correctAnswer = correctAnswer;
 	}
 
-	public int getSubjectId() {
-		return subjectId;
-	}
-
-	public void setSubjectId(int subjectId) {
-		this.subjectId = subjectId;
-	}
-
 	public int getLevels() {
 		return levels;
 	}
@@ -146,8 +127,7 @@ public class Question {
 	public String toString() {
 		return "Question [questionId=" + questionId + ", question=" + question + ", option1=" + option1 + ", option2="
 				+ option2 + ", option3=" + option3 + ", option4=" + option4 + ", correctAnswer=" + correctAnswer
-				+ ", subjectId=" + subjectId + ", levels=" + levels + "]";
+				+ ", levels=" + levels + "]";
 	}
 
-	
 }

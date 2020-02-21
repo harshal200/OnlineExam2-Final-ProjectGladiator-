@@ -25,16 +25,19 @@ public class Subject {
 	@Column(name="SUBJECT_NAME")
 	private String subjectName;
 	
-	/*
-	 * @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL) private
-	 * List<Question> question;
-	 * 
-	 * 
-	 * public List<Question> getQuestion() { return question; }
-	 * 
-	 * public void setQuestion(List<Question> question) { this.question = question;
-	 * }
-	 */
+	
+	
+	  @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL) private
+	  List<Question> question;
+
+	  public List<Question> getQuestion() { 
+		  return question; 
+		  }
+	 
+	  public void setQuestion(List<Question> question) { 
+		  this.question = question;
+	  }
+	 
 
 	public Subject() {
 		super();		
