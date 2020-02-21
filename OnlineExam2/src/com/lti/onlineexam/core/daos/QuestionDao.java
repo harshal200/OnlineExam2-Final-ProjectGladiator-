@@ -9,5 +9,6 @@ public interface QuestionDao {
 	
 
 		public ArrayList<Question> fetchQuestions() throws HrException;
-	}
+		//public Question fetchedQuestionWithId(int subjectId) throws HrException;	
+		}
 

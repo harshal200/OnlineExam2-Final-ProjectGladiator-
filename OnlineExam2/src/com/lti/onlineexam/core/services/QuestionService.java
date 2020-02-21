@@ -7,4 +7,5 @@ import com.lti.onlineexam.core.exceptions.HrException;
 
 public interface QuestionService {
 	public ArrayList<Question> fetchQuestions() throws HrException;
+	//public Question fetchedQuestionWithId(int subjectId) throws HrException;
 }

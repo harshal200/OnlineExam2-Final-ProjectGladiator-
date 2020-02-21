@@ -20,4 +20,11 @@ public class QuestionServiceImpl implements QuestionService {
 	{
 		return dao.fetchQuestions();
 	}
+
+	/*
+	 * @Override public Question fetchedQuestionWithId(int subjectId) throws
+	 * HrException { return dao.fetchedQuestionWithId(subjectId);
+	 * 
+	 * }
+	 */
 }
