@@ -23,7 +23,7 @@ public class UserRegisterImpl implements UserRegisterDao{
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public boolean insertNewUser(UserRegister reg) throws HrException {
-		manager.persist(reg);
+		manager.merge(reg);
 		return true;
 	}
 

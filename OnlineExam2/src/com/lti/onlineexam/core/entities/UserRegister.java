@@ -10,14 +10,13 @@ import javax.persistence.Table;
 
 @Entity(name="ureg")
 @Table(name = "user_register")
-
+@SequenceGenerator(name = "user_reg_seq", sequenceName = "USERREGISTER_SEQ", allocationSize = 1)
 public class UserRegister {
-
+	//@SequenceGenerator(name = "SequenceIdGenerator", sequenceName = "HIBERNATE_SEQUENCE")
 	//@GeneratedValue
 	
 	@Id
-	@SequenceGenerator(name = "SequenceIdGenerator", sequenceName = "HIBERNATE_SEQUENCE")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SequenceIdGenerator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_reg_seq")
 	@Column(name = "user_id")
 	private int userId;
 

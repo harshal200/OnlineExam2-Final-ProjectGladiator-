@@ -20,7 +20,7 @@ public class QuestionDaoImpl implements QuestionDao{
 	@Override
 	public ArrayList<Question> fetchQuestions() throws HrException {
 	
-		String strQry = "from QUESTION";
+		String strQry = "select levels from QUESTION";
 		Query qry = manager.createQuery(strQry);
 		List<Question> questionList = qry.getResultList();
 		return (ArrayList<Question>) questionList;
