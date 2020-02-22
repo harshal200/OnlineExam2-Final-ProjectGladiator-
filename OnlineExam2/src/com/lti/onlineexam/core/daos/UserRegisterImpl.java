@@ -19,7 +19,7 @@ public class UserRegisterImpl implements UserRegisterDao{
 	@PersistenceContext
 	private EntityManager manager;
 
-	
+
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public boolean insertNewUser(UserRegister reg) throws HrException {
