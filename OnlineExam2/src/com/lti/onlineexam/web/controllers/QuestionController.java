@@ -1,5 +1,6 @@
 package com.lti.onlineexam.web.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,23 +21,25 @@ public class QuestionController {
 	@Autowired
 	private QuestionService qService;
 
-	/*@GetMapping(value = "/queList", produces = "application/json")
+	@GetMapping(value = "/queList", produces = "application/json")
 	public @ResponseBody ArrayList<Question> getQuestionList() {
 		ArrayList<Question> questionList = null;
 		try {
-			questionList = qService.fetchQuestions();
+			questionList = (ArrayList<Question>) qService.fetchQuestions();
 		} catch (HrException e) {
 
 			e.printStackTrace();
 		}
 
 		return questionList;
-	}*/
+	}
+	
+	// http://localhost:8181/OnlineExam2/getQuesById/{subjectId}/{levels}
 
-	@GetMapping(value="/getQuesById/{subjectId}", produces="application/json") 
-	  public @ResponseBody List<Question> getQuestionById(@PathVariable("subjectId") int subjectId) { 
+	@GetMapping(value="/getQuesById/{subjectId}/{levels}", produces="application/json") 
+	  public @ResponseBody List<Question> getQuestionById(@PathVariable("subjectId") int subjectId, @PathVariable("levels") int levels) { 
 	  try {
-		  List<Question> listOfQuestions = qService.fetchedQuestionWithId(subjectId);
+		  List<Question> listOfQuestions = qService.fetchedQuestionWithId(subjectId,levels);
 		  return listOfQuestions;
 	  } 
 	  	catch (HrException e) {

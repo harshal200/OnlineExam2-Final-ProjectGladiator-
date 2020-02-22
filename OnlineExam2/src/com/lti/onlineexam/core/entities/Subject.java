@@ -27,8 +27,8 @@ public class Subject {
 	
 	
 	
-	  @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL) private
-	  List<Question> question;
+	  @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL) 
+	  private List<Question> question;
 
 	  public List<Question> getQuestion() { 
 		  return question; 

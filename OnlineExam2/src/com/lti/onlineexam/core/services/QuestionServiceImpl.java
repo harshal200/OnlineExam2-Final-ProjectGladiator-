@@ -24,8 +24,8 @@ public class QuestionServiceImpl implements QuestionService {
 	
 	
 	  @Override 
-	  public List<Question> fetchedQuestionWithId(int subjectId) throws HrException { 
-		  return dao.fetchedQuestionWithId(subjectId);
+	  public List<Question> fetchedQuestionWithId(int subjectId,int levels) throws HrException { 
+		  return dao.fetchedQuestionWithId(subjectId, levels);
 	  
 	  }
 	 

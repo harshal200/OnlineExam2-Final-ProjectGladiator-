@@ -28,10 +28,11 @@ public class QuestionDaoImpl implements QuestionDao {
 	}
 
 	@Override
-	public List<Question> fetchedQuestionWithId(int subjectId) throws HrException {
-		String q = "select q from Question q join q.subject s where s.subjectId=:subjectId";
+	public List<Question> fetchedQuestionWithId(int subjectId, int levels) throws HrException {
+		String q = "select q from Question q join q.subject s where s.subjectId=:subjectId AND q.levels= :levels";
 		Query q1 = manager.createQuery(q);
 		q1.setParameter("subjectId", subjectId);
+		q1.setParameter("levels", levels);
 		return q1.getResultList();
 	}
 

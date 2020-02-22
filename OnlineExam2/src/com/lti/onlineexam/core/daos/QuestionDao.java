@@ -10,6 +10,6 @@ public interface QuestionDao {
 	
 
 		public List<Question> fetchQuestions() throws HrException;
-		public List<Question> fetchedQuestionWithId(int subjectId) throws HrException;	
+		public List<Question> fetchedQuestionWithId(int subjectId, int levels) throws HrException;	
 		}
 
