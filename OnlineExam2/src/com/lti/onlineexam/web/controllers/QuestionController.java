@@ -21,18 +21,19 @@ public class QuestionController {
 	@Autowired
 	private QuestionService qService;
 
-	@GetMapping(value = "/queList", produces = "application/json")
-	public @ResponseBody ArrayList<Question> getQuestionList() {
-		ArrayList<Question> questionList = null;
-		try {
-			questionList = (ArrayList<Question>) qService.fetchQuestions();
-		} catch (HrException e) {
-
-			e.printStackTrace();
-		}
-
-		return questionList;
-	}
+	/*
+	 * @GetMapping(value = "/queList", produces = "application/json")
+	 * public @ResponseBody ArrayList<Question> getQuestionList() {
+	 * ArrayList<Question> questionList = null; try { questionList =
+	 * (ArrayList<Question>) qService.fetchQuestions(); } catch (HrException e) {
+	 * 
+	 * e.printStackTrace(); }
+	 * 
+	 * return questionList; }
+	 */
+	
+	
+	//---------------Fetching Question By subject and Level--------------------
 	
 	// http://localhost:8181/OnlineExam2/getQuesById/{subjectId}/{levels}
 

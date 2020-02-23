@@ -45,6 +45,11 @@
 <artifactId>spring-jdbc</artifactId>
 <version>${spring-version}</version>
 </dependency>
+<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.6</version>
+		</dependency>
 
 <!-- Hibernate JPA dependencies -->
 <dependency>
@@ -75,6 +80,7 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+     
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.3</version>

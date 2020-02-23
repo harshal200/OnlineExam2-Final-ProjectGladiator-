@@ -3,19 +3,22 @@ package com.lti.onlineexam.core.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity()
 @Table(name = "QUESTION")
+@SequenceGenerator(name = "question_seq", sequenceName = "QUESTION_SEQ", allocationSize = 1)
 public class Question {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "question_seq")
 	@Column(name = "QUESTION_ID")
 	private int questionId;
 

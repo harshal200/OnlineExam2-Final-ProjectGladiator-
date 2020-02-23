@@ -15,7 +15,7 @@ import com.lti.onlineexam.core.exceptions.HrException;
 
 
 @Repository
-public class UserRegisterImpl implements UserRegisterDao{
+public class UserRegisterDaoImpl implements UserRegisterDao{
 	@PersistenceContext
 	private EntityManager manager;
 

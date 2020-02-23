@@ -1,10 +1,16 @@
 package com.lti.onlineexam.core.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,12 +36,20 @@ public class ExamResult {
 	@Column(name="EXAM_DATE")
 	private LocalDate examDate;
 
-	public int getExamResultId() {
-		return examResultId;
+	
+	
+	@ManyToOne()
+	@JoinColumn(name="userId")
+	private UserRegister userRegister;
+	
+	
+
+	public UserRegister getUserRegister() {
+		return userRegister;
 	}
 
-	public void setExamResultId(int examResultId) {
-		this.examResultId = examResultId;
+	public void setUserRegister(UserRegister userRegister) {
+		this.userRegister = userRegister;
 	}
 
 	public int getUserId() {

@@ -1,12 +1,21 @@
 package com.lti.onlineexam.core.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name="ureg")
 @Table(name = "user_register")
@@ -17,8 +26,12 @@ public class UserRegister {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_reg_seq")
-	@Column(name = "user_id")
+	@Column(name="user_id")
 	private int userId;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "userRegister",cascade = CascadeType.ALL)
+	private List<ExamResult> examResult;
 
 	@Column(name = "full_name")
 	private String firstName;
@@ -47,25 +60,21 @@ public class UserRegister {
 	@Column(name = "state")
 	private String state;
 	
+	
+	
+	public List<ExamResult> getExamResult() {
+		return examResult;
+	}
+
+	public void setExamResult(List<ExamResult> examResult) {
+		this.examResult = examResult;
+	}
+
 	public UserRegister() {
 	
 	}
 
-	public UserRegister(int userId, String firstName, String email, String password, long mobileNumber,
-			String dateOfBirth, String qualification, int yearOfCompletion, String city, String state) {
-		super();
-		this.userId = userId;
-		this.firstName = firstName;
-		this.email = email;
-		this.password = password;
-		this.mobileNumber = mobileNumber;
-		this.dateOfBirth = dateOfBirth;
-		this.qualification = qualification;
-		this.yearOfCompletion = yearOfCompletion;
-		this.city = city;
-		this.state = state;
-	}
-
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -146,13 +155,13 @@ public class UserRegister {
 		this.state = state;
 	}
 
-	@Override
-	public String toString() {
-		return "UserRegister [userId=" + userId + ", firstName=" + firstName + ", email=" + email + ", password="
-				+ password + ", mobileNumber=" + mobileNumber + ", dateOfBirth=" + dateOfBirth + ", qualification="
-				+ qualification + ", yearOfCompletion=" + yearOfCompletion + ", city=" + city + ", state=" + state
-				+ "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "UserRegister [userId=" + userId + ", firstName=" + firstName + ", email=" + email + ", password="
+//				+ password + ", mobileNumber=" + mobileNumber + ", dateOfBirth=" + dateOfBirth + ", qualification="
+//				+ qualification + ", yearOfCompletion=" + yearOfCompletion + ", city=" + city + ", state=" + state
+//				+ "]";
+//	}
 
 	
 }

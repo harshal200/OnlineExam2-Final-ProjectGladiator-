@@ -19,13 +19,13 @@ public class QuestionDaoImpl implements QuestionDao {
 	private EntityManager manager;
 
 	// @Transactional(propagation = Propagation.REQUIRED)
-	@Override
+	/*@Override
 	public List<Question> fetchQuestions() throws HrException {
 		String strQry = "select q from Question q";
 		Query qry = manager.createQuery(strQry);
 		List<Question> questionList = qry.getResultList();
 		return questionList;
-	}
+	}*/
 
 	@Override
 	public List<Question> fetchedQuestionWithId(int subjectId, int levels) throws HrException {
