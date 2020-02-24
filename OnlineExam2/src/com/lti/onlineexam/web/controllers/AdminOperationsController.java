@@ -24,12 +24,16 @@ public class AdminOperationsController {
 		@Autowired
 		private AdminOperationsService adminService;
 
-	/*
-	 * @PostMapping(value = "/addQuestions", consumes = "application/json") public
-	 * void addQuestion(@RequestBody Question questions) {
-	 * System.out.println(questions); try { service.insertQuestion(questions); }
-	 * catch (HrException e) { e.printStackTrace(); } }
-	 */
+	
+	  @PostMapping(value = "/addQuestions", consumes = "application/json")
+	  public void addQuestion(@RequestBody Question questions) {
+	  System.out.println(questions); 
+	  try { 
+		  adminService.insertQuestion(questions); }
+	  catch (HrException e) { 
+		  e.printStackTrace(); } 
+	  }
+	 
 		
 		@GetMapping(value="/getUsersList/{state}/{city}/{levels}/{score}", produces="application/json") 
 		  public @ResponseBody List<UserRegister> getUsersList(@PathVariable("state") String state, @PathVariable("city") String city, @PathVariable("levels") int levels ,@PathVariable("score") int score) { 

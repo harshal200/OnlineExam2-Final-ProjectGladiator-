@@ -17,12 +17,12 @@ public class AdminOperationsServiceImpl implements AdminOperationsService {
 	@Autowired
 	private AdminOperationsDao dao;
 
-	//@Transactional(propagation = Propagation.REQUIRES_NEW)
-	//@Override
-	//public boolean insertQuestion(Question questions) throws HrException {
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	@Override
+	public boolean insertQuestion(Question questions) throws HrException {
 		
-	//	return dao.insertQuestion(questions);
-	//}
+		return dao.insertQuestion(questions);
+	}
 
 	@Override
 	public List<UserRegister> reportGeneration(String state, String city, int levels, int score) throws HrException {

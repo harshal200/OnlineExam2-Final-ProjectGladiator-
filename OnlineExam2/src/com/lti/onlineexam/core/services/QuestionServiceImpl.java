@@ -15,11 +15,11 @@ public class QuestionServiceImpl implements QuestionService {
 	@Autowired
 	private QuestionDao dao;
 	
-	//@Override
-	//public List<Question> fetchQuestions() throws HrException
-	//{
-	//	return dao.fetchQuestions();
-	//}
+	@Override
+	public List<Question> fetchQuestions() throws HrException
+	{
+		return dao.fetchQuestions();
+	}
 
 
 	  @Override 

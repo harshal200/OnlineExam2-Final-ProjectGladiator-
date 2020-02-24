@@ -8,7 +8,7 @@ import com.lti.onlineexam.core.exceptions.HrException;
 
 public interface AdminOperationsService {
 
-	//public boolean insertQuestion(Question questions) throws HrException; 
+	public boolean insertQuestion(Question questions) throws HrException; 
 	public List<UserRegister> reportGeneration(String state, String city, int levels, int score) throws HrException;
 
 }

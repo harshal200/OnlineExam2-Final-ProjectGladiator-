@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity(name="ureg")
+@Entity
 @Table(name = "user_register")
 @SequenceGenerator(name = "user_reg_seq", sequenceName = "USERREGISTER_SEQ", allocationSize = 1)
 public class UserRegister {

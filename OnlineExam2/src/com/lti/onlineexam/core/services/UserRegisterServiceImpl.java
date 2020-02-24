@@ -1,6 +1,7 @@
 package com.lti.onlineexam.core.services;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,11 @@ public class UserRegisterServiceImpl implements UserRegisterService {
 	@Override
 	public ArrayList<UserRegister> getApplicantList() throws HrException {
 		return dao.applicantDetails();	
+	}
+
+	@Override
+	public List<UserRegister> isValid(UserRegister userRegister) throws HrException {
+		List<UserRegister> user = dao.isValid(userRegister);
+		return user;
 	}
 }

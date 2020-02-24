@@ -29,7 +29,7 @@ public class  AdminOperationsDaoImpl implements AdminOperationsDao {
 			
 			//u join u.examResult e where u.state=:state AND u.city=:city AND e.levels=:levels AND e.score=:score
 	
-		String q = "select u from UserRegister ";
+		String q = "select u from UserRegister u join u.examResult e where u.state=:state AND u.city=:city AND e.levels=:levels AND e.score=:score";
 		Query q1 = manager.createQuery(q);
 		q1.setParameter("state", state);
 		q1.setParameter("city", city);
@@ -42,16 +42,12 @@ public class  AdminOperationsDaoImpl implements AdminOperationsDao {
 	
 	}
 	
-	//@Transactional(propagation = Propagation.REQUIRED)
-	//@Override
-//	public boolean insertQuestion(Question questions) throws HrException {
+	@Transactional(propagation = Propagation.REQUIRED)
+	@Override
+	public boolean insertQuestion(Question questions) throws HrException {
 		
-	//	manager.merge(questions);
+	manager.merge(questions);
 		
-	//	return true;
-//	}
-
-
-	
-
+		return true;
+	}
 }

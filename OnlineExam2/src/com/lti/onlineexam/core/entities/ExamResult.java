@@ -5,19 +5,24 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="EXAM_RESULT")
+@SequenceGenerator(name = "examresult_seq", sequenceName = "EXAMRESULT_SEQ", allocationSize = 1)
 public class ExamResult {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "examresult_seq")
 	@Column(name="EXAMRESULT_ID")
 	private int examResultId;
 	
@@ -32,9 +37,7 @@ public class ExamResult {
 	
 	@Column(name="SCORE")
 	private int score;
-	
-	@Column(name="EXAM_DATE")
-	private LocalDate examDate;
+
 
 	
 	
@@ -84,19 +87,15 @@ public class ExamResult {
 		this.score = score;
 	}
 
-	public LocalDate getExamDate() {
-		return examDate;
-	}
-
-	public void setExamDate(LocalDate examDate) {
-		this.examDate = examDate;
-	}
-
 	@Override
 	public String toString() {
 		return "ExamResult [examResultId=" + examResultId + ", userId=" + userId + ", subjectId=" + subjectId
-				+ ", levels=" + levels + ", score=" + score + ", examDate=" + examDate + "]";
+				+ ", levels=" + levels + ", score=" + score + ", userRegister=" + userRegister + "]";
 	}
+
+	
+
+	
 	
 	
 }

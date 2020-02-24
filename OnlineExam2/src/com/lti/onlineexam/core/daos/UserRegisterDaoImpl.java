@@ -30,9 +30,27 @@ public class UserRegisterDaoImpl implements UserRegisterDao{
 
 	@Override
 	public ArrayList<UserRegister> applicantDetails() throws HrException {
-		String strQry = "from ureg";
+		String strQry = "from UserRegister";
 		Query qry = manager.createQuery(strQry);
 		List<UserRegister> applicantList = qry.getResultList();
 		return (ArrayList<UserRegister>) applicantList;
+	}
+
+
+	@Override
+	public List<UserRegister> isValid(UserRegister userRegister) {
+		System.out.println(userRegister.getEmail());
+		String q = "select e from UserRegister e where e.email=:u and e.password=:p";
+		Query qq =manager.createQuery(q);
+		qq.setParameter("u", userRegister.getEmail());
+		qq.setParameter("p", userRegister.getPassword());
+		
+		List<UserRegister> user1 = qq.getResultList();
+		List<UserRegister> u = new ArrayList<>();
+		if(user1.isEmpty())
+			return u;
+		else
+			return user1;
+		
 	}
 }
