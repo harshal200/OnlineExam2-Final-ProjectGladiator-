@@ -1,8 +1,6 @@
 package com.lti.onlineexam.core.entities;
 
-import java.time.LocalDate;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,15 +36,10 @@ public class ExamResult {
 	@Column(name="SCORE")
 	private int score;
 
-
-	
-	
 	@ManyToOne()
 	@JoinColumn(name="userId")
 	private UserRegister userRegister;
 	
-	
-
 	public UserRegister getUserRegister() {
 		return userRegister;
 	}
@@ -87,15 +80,4 @@ public class ExamResult {
 		this.score = score;
 	}
 
-	@Override
-	public String toString() {
-		return "ExamResult [examResultId=" + examResultId + ", userId=" + userId + ", subjectId=" + subjectId
-				+ ", levels=" + levels + ", score=" + score + ", userRegister=" + userRegister + "]";
-	}
-
-	
-
-	
-	
-	
 }

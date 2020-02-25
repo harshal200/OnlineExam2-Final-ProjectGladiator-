@@ -24,10 +24,4 @@ public class AdminOperationsServiceImpl implements AdminOperationsService {
 		return dao.insertQuestion(questions);
 	}
 
-	@Override
-	public List<UserRegister> reportGeneration(String state, String city, int levels, int score) throws HrException {
-		return dao.reportGeneration(state, city, levels, score);
-		
-	}
-
 }

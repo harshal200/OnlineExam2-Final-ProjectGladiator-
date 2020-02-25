@@ -18,15 +18,8 @@ public class QuestionDaoImpl implements QuestionDao {
 	@PersistenceContext
 	private EntityManager manager;
 
-	@Transactional(propagation = Propagation.REQUIRED)
-	@Override
-	public List<Question> fetchQuestions() throws HrException {
-		String strQry = "select q from Question q";
-		Query qry = manager.createQuery(strQry);
-		List<Question> questionList = qry.getResultList();
-		return questionList;
-	}
-
+	
+//-----------------To Calculate Score-------------------//
 	public int fetch(List<QueAndAns> queAndAns) {
 		String strQry = "select q from Question q";
 		Query qry = manager.createQuery(strQry);
@@ -51,6 +44,8 @@ public class QuestionDaoImpl implements QuestionDao {
 		return score;
 		
 	}
+	
+	//----------To fetch questions with respective subject Id and levels----------//
 	@Override
 	public List<Question> fetchedQuestionWithId(int subjectId, int levels) throws HrException {
 		String q = "select q from Question q join q.subject s where s.subjectId=:subjectId AND q.levels= :levels";
@@ -60,4 +55,14 @@ public class QuestionDaoImpl implements QuestionDao {
 		return q1.getResultList();
 	}
 
+	//---------------To fetch Question---------------------
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	@Override
+	public List<Question> fetchQuestions() throws HrException {
+		String strQry = "select q from Question q";
+		Query qry = manager.createQuery(strQry);
+		List<Question> questionList = qry.getResultList();
+		return questionList;
+	}
 }

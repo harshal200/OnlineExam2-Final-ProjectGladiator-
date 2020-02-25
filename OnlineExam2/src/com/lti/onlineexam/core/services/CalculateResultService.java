@@ -13,6 +13,6 @@ import com.lti.onlineexam.core.exceptions.HrException;
 public interface CalculateResultService {
 
 	
-	public List<UserResponse> calculateResult(List<QueAndAns> queAndAns) throws HrException;
+	//public List<UserResponse> calculateResult(List<QueAndAns> queAndAns) throws HrException;
 	public int fetch(List<QueAndAns> queAndAns) throws HrException;
 }

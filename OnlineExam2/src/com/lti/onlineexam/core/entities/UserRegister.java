@@ -21,8 +21,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "user_register")
 @SequenceGenerator(name = "user_reg_seq", sequenceName = "USERREGISTER_SEQ", allocationSize = 1)
 public class UserRegister {
-	//@SequenceGenerator(name = "SequenceIdGenerator", sequenceName = "HIBERNATE_SEQUENCE")
-	//@GeneratedValue
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_reg_seq")
@@ -71,10 +69,8 @@ public class UserRegister {
 	}
 
 	public UserRegister() {
-	
 	}
 
-	
 	public int getUserId() {
 		return userId;
 	}
@@ -154,14 +150,5 @@ public class UserRegister {
 	public void setState(String state) {
 		this.state = state;
 	}
-
-//	@Override
-//	public String toString() {
-//		return "UserRegister [userId=" + userId + ", firstName=" + firstName + ", email=" + email + ", password="
-//				+ password + ", mobileNumber=" + mobileNumber + ", dateOfBirth=" + dateOfBirth + ", qualification="
-//				+ qualification + ", yearOfCompletion=" + yearOfCompletion + ", city=" + city + ", state=" + state
-//				+ "]";
-//	}
-
 	
 }

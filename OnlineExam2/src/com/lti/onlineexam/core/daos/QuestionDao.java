@@ -11,5 +11,5 @@ public interface QuestionDao {
 		public int fetch(List<QueAndAns> que) throws HrException;
 		public List<Question> fetchQuestions() throws HrException;
 		public List<Question> fetchedQuestionWithId(int subjectId, int levels) throws HrException;	
-		}
+}
 

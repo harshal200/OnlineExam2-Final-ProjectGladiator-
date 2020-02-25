@@ -23,24 +23,8 @@ public class  AdminOperationsDaoImpl implements AdminOperationsDao {
 
 	@PersistenceContext
 	private EntityManager manager;
-
-	@Override
-	public List<UserRegister> reportGeneration( String state, String city, int levels, int score) throws HrException {
-			
-			//u join u.examResult e where u.state=:state AND u.city=:city AND e.levels=:levels AND e.score=:score
 	
-		String q = "select u from UserRegister u join u.examResult e where u.state=:state AND u.city=:city AND e.levels=:levels AND e.score=:score";
-		Query q1 = manager.createQuery(q);
-		q1.setParameter("state", state);
-		q1.setParameter("city", city);
-		q1.setParameter("levels", levels);
-		q1.setParameter("score", score);
-		
-		List<UserRegister> applicantList = q1.getResultList();
-		return (ArrayList<UserRegister>) applicantList;
-	
-	
-	}
+	//----------------To insert Question in Database----------------------//
 	
 	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
@@ -50,4 +34,24 @@ public class  AdminOperationsDaoImpl implements AdminOperationsDao {
 		
 		return true;
 	}
+	
+	
+	
+//	@Override
+//	public List<UserRegister> reportGeneration( String state, String city, int levels, int score) throws HrException {
+//			
+//			//u join u.examResult e where u.state=:state AND u.city=:city AND e.levels=:levels AND e.score=:score
+//	
+//		String q = "select u from UserRegister u join u.examResult e where u.state=:state AND u.city=:city AND e.levels=:levels AND e.score=:score";
+//		Query q1 = manager.createQuery(q);
+//		q1.setParameter("state", state);
+//		q1.setParameter("city", city);
+//		q1.setParameter("levels", levels);
+//		q1.setParameter("score", score);
+//		
+//		List<UserRegister> applicantList = q1.getResultList();
+//		return (ArrayList<UserRegister>) applicantList;
+//	
+//	
+//	}
 }

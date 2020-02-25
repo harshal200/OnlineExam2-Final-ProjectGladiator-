@@ -24,9 +24,5 @@ public class QIdAndAns {
 	public void setAns(String ans) {
 		this.ans = ans;
 	}
-	@Override
-	public String toString() {
-		return "QID_ANS [queId=" + queId + ", ans=" + ans + "]";
-	}
 	
 }

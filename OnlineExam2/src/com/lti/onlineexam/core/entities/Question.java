@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity()
+@Entity
 @Table(name = "QUESTION")
 @SequenceGenerator(name = "question_seq", sequenceName = "QUESTION_SEQ", allocationSize = 1)
 public class Question {
@@ -59,9 +59,6 @@ public class Question {
 	public Question() {
 		super();
 	}
-
-	
-
 	public int getQuestionId() {
 		return questionId;
 	}

@@ -20,30 +20,31 @@ import com.lti.onlineexam.core.services.AdminOperationsService;
 @RestController
 public class AdminOperationsController {
 
-	//http://192.168.12.137:8181/OnlineExam2/addQuestions
-		@Autowired
-		private AdminOperationsService adminService;
-
 	
-	  @PostMapping(value = "/addQuestions", consumes = "application/json")
-	  public void addQuestion(@RequestBody Question questions) {
-	  System.out.println(questions); 
-	  try { 
-		  adminService.insertQuestion(questions); }
-	  catch (HrException e) { 
-		  e.printStackTrace(); } 
+	@Autowired
+	private AdminOperationsService adminService;
+
+	//http://192.168.12.137:8181/OnlineExam2/addQuestions
+	 @PostMapping(value = "/addQuestions", consumes = "application/json")
+	 public void addQuestion(@RequestBody Question questions) {
+	 System.out.println(questions); 
+	 try { 
+		 adminService.insertQuestion(questions); }
+	 catch (HrException e) { 
+		  e.printStackTrace(); 
+		  } 
 	  }
 	 
 		
-		@GetMapping(value="/getUsersList/{state}/{city}/{levels}/{score}", produces="application/json") 
-		  public @ResponseBody List<UserRegister> getUsersList(@PathVariable("state") String state, @PathVariable("city") String city, @PathVariable("levels") int levels ,@PathVariable("score") int score) { 
-		  try {
-			  List<UserRegister> listOfUsers = adminService.reportGeneration(state, city, levels, score);
-					  return listOfUsers;
-		  } 
-		  	catch (HrException e) {
-		  		e.printStackTrace(); 
-		  		return null;
-		  } 
-		}
+//		@GetMapping(value="/getUsersList/{state}/{city}/{levels}/{score}", produces="application/json") 
+//		  public @ResponseBody List<UserRegister> getUsersList(@PathVariable("state") String state, @PathVariable("city") String city, @PathVariable("levels") int levels ,@PathVariable("score") int score) { 
+//		  try {
+//			  List<UserRegister> listOfUsers = adminService.reportGeneration(state, city, levels, score);
+//					  return listOfUsers;
+//		  } 
+//		  	catch (HrException e) {
+//		  		e.printStackTrace(); 
+//		  		return null;
+//		  } 
+//		}
 }
