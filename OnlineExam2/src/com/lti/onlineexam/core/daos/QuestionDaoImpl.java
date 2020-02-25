@@ -20,28 +20,21 @@ public class QuestionDaoImpl implements QuestionDao {
 
 	
 //-----------------To Calculate Score-------------------//
-	public int fetch(List<QueAndAns> queAndAns) {
+	public List<QIdAndAns> fetch(List<QueAndAns> queAndAns) {
 		String strQry = "select q from Question q";
 		Query qry = manager.createQuery(strQry);
 		List<Question> questionList = qry.getResultList();
 		List<QIdAndAns> q1 = new ArrayList<QIdAndAns>();
 		QIdAndAns ans = new QIdAndAns();
-		int score= 0;
+		//int score= 0;
 		for(Question q : questionList) {
 			ans.setQueId(q.getQuestionId());
 			ans.setAns(q.getCorrectAnswer());
 			q1.add(ans);
 			ans = new QIdAndAns();	
 		}
-		for(QueAndAns q3:queAndAns) {
-			for(QIdAndAns q5 : q1) {
-				if(q3.getQuestionId()== q5.getQueId() && q3.getAnswer().equals(q5.getAns())) {
-					score=score+1;
-				}
-			}
-		}
-		System.out.println(q1);
-		return score;
+		return q1;
+		
 		
 	}
 	
