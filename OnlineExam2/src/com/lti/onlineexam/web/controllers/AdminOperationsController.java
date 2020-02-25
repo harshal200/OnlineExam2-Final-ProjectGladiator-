@@ -43,7 +43,7 @@ public class AdminOperationsController {
 		  } 
 		  	catch (HrException e) {
 		  		e.printStackTrace(); 
-		  		return null; //instead check how to: exception handling in spring rest/mvc
+		  		return null;
 		  } 
 		}
 }

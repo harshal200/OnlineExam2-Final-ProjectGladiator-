@@ -1,17 +1,13 @@
 package com.lti.onlineexam.core.daos;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.lti.onlineexam.core.entities.QID_ANS;
+import com.lti.onlineexam.core.entities.QIdAndAns;
 import com.lti.onlineexam.core.entities.QueAndAns;
 import com.lti.onlineexam.core.entities.Question;
 import com.lti.onlineexam.core.exceptions.HrException;
@@ -35,20 +31,17 @@ public class QuestionDaoImpl implements QuestionDao {
 		String strQry = "select q from Question q";
 		Query qry = manager.createQuery(strQry);
 		List<Question> questionList = qry.getResultList();
-		List<QID_ANS> q1 = new ArrayList<QID_ANS>();
-		QID_ANS ans = new QID_ANS();
+		List<QIdAndAns> q1 = new ArrayList<QIdAndAns>();
+		QIdAndAns ans = new QIdAndAns();
 		int score= 0;
 		for(Question q : questionList) {
 			ans.setQueId(q.getQuestionId());
 			ans.setAns(q.getCorrectAnswer());
-			
 			q1.add(ans);
-			ans = new QID_ANS();
-//			
-			
+			ans = new QIdAndAns();	
 		}
 		for(QueAndAns q3:queAndAns) {
-			for(QID_ANS q5 : q1) {
+			for(QIdAndAns q5 : q1) {
 				if(q3.getQuestionId()== q5.getQueId() && q3.getAnswer().equals(q5.getAns())) {
 					score=score+1;
 				}

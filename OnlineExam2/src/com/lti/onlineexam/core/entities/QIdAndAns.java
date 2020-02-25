@@ -1,13 +1,13 @@
 package com.lti.onlineexam.core.entities;
 
-public class QID_ANS {
+public class QIdAndAns {
 
 	private int queId;
 	private String ans;
-	public QID_ANS() {
+	public QIdAndAns() {
 		super();
 	}
-	public QID_ANS(int queId, String ans) {
+	public QIdAndAns(int queId, String ans) {
 		super();
 		this.queId = queId;
 		this.ans = ans;
